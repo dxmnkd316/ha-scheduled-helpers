@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+*.egg-info/
+.vscode/
+.idea/
+# local HA dev instance config, if you run one alongside this repo
+config/
+
+# personal development notes -- not part of the published repo
+SPEC.md
+CLAUDE.md

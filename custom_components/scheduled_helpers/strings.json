@@ -1,0 +1,281 @@
+{
+  "title": "Scheduled Helpers",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Scheduled Helpers",
+        "description": "Choose which kind of schedule-driven helper to create.",
+        "menu_options": {
+          "combine": "Combine Sensor",
+          "template": "Template Sensor",
+          "template_binary": "Template Binary Sensor"
+        }
+      },
+      "combine": {
+        "title": "Combine Sensor",
+        "description": "Functional clone of the built-in \"Combine the state of several sensors\" helper, except it updates on a fixed schedule instead of reacting to every source state change.",
+        "data": {
+          "name": "Name",
+          "sources": "Source entities",
+          "aggregation": "Aggregation function",
+          "unit_of_measurement": "Unit of measurement",
+          "device_class": "Device class",
+          "state_class": "State class",
+          "hour": "Hour",
+          "minute": "Minute",
+          "second": "Second",
+          "device_id": "Device",
+          "entity_category": "Entity category"
+        },
+        "data_description": {
+          "sources": "One or more entities whose numeric state will be combined. A source that's unavailable or non-numeric at update time is skipped rather than treated as an error. If both a device class and a unit are set below, a source reporting a different but convertible unit (e.g. inHg vs psi for a pressure device class) is converted before combining; a source in a completely unrelated unit is skipped like any other unusable source.",
+          "aggregation": "How to combine the current source values into the sensor's state.",
+          "hour": "Hour field of the update schedule: an exact hour (0-23), a step value like `/2` for every 2nd hour, or blank. Leaving this blank means \"every hour\" -- only set it if the schedule should be limited to specific hours.",
+          "minute": "Minute field of the update schedule: an exact minute (0-59), a step value like `/5` (the suggested default), or blank. If second is set to a specific value below, a blank minute means \"every minute\"; otherwise a blank minute means \"at minute 0\".",
+          "second": "Second field of the update schedule: an exact second (0-59), a step value like `/30`, or blank. A blank second means \"at second 0\", not \"every second\". At least one of hour, minute, or second must be set to a specific value or step.",
+          "entity_category": "Allows marking an entity as device configuration or diagnostics. An entity with a category will be hidden by default from the dashboard, but still available in the entity list."
+        }
+      },
+      "template": {
+        "title": "Template Sensor",
+        "description": "Functional clone of the built-in Template sensor, except it updates on a fixed schedule instead of reacting to every state change referenced in the template.",
+        "data": {
+          "name": "Name",
+          "state_template": "State template",
+          "availability_template": "Availability template",
+          "unit_of_measurement": "Unit of measurement",
+          "device_class": "Device class",
+          "state_class": "State class",
+          "hour": "Hour",
+          "minute": "Minute",
+          "second": "Second",
+          "device_id": "Device",
+          "entity_category": "Entity category"
+        },
+        "data_description": {
+          "state_template": "Jinja2 template rendered on each scheduled tick to produce the sensor's state.",
+          "availability_template": "Optional Jinja2 template rendered before the state template on each tick; if it renders falsy, the entity is marked unavailable and the state template is not rendered.",
+          "hour": "Hour field of the update schedule: an exact hour (0-23), a step value like `/2` for every 2nd hour, or blank. Leaving this blank means \"every hour\" -- only set it if the schedule should be limited to specific hours.",
+          "minute": "Minute field of the update schedule: an exact minute (0-59), a step value like `/5` (the suggested default), or blank. If second is set to a specific value below, a blank minute means \"every minute\"; otherwise a blank minute means \"at minute 0\".",
+          "second": "Second field of the update schedule: an exact second (0-59), a step value like `/30`, or blank. A blank second means \"at second 0\", not \"every second\". At least one of hour, minute, or second must be set to a specific value or step.",
+          "entity_category": "Allows marking an entity as device configuration or diagnostics. An entity with a category will be hidden by default from the dashboard, but still available in the entity list."
+        }
+      },
+      "template_binary": {
+        "title": "Template Binary Sensor",
+        "description": "Functional clone of the built-in Template binary sensor, except it updates on a fixed schedule instead of reacting to every state change referenced in the template.",
+        "data": {
+          "name": "Name",
+          "state_template": "State template",
+          "availability_template": "Availability template",
+          "device_class": "Device class",
+          "hour": "Hour",
+          "minute": "Minute",
+          "second": "Second",
+          "device_id": "Device",
+          "entity_category": "Entity category"
+        },
+        "data_description": {
+          "state_template": "Jinja2 template rendered on each scheduled tick to produce the sensor's state.",
+          "availability_template": "Optional Jinja2 template rendered before the state template on each tick; if it renders falsy, the entity is marked unavailable and the state template is not rendered.",
+          "hour": "Hour field of the update schedule: an exact hour (0-23), a step value like `/2` for every 2nd hour, or blank. Leaving this blank means \"every hour\" -- only set it if the schedule should be limited to specific hours.",
+          "minute": "Minute field of the update schedule: an exact minute (0-59), a step value like `/5` (the suggested default), or blank. If second is set to a specific value below, a blank minute means \"every minute\"; otherwise a blank minute means \"at minute 0\".",
+          "second": "Second field of the update schedule: an exact second (0-59), a step value like `/30`, or blank. A blank second means \"at second 0\", not \"every second\". At least one of hour, minute, or second must be set to a specific value or step.",
+          "entity_category": "Allows marking an entity as device configuration or diagnostics. An entity with a category will be hidden by default from the dashboard, but still available in the entity list."
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "combine": {
+        "data": {
+          "sources": "Source entities",
+          "aggregation": "Aggregation function",
+          "unit_of_measurement": "Unit of measurement",
+          "device_class": "Device class",
+          "state_class": "State class",
+          "hour": "Hour",
+          "minute": "Minute",
+          "second": "Second",
+          "device_id": "Device",
+          "entity_category": "Entity category"
+        },
+        "data_description": {
+          "sources": "One or more entities whose numeric state will be combined. A source that's unavailable or non-numeric at update time is skipped rather than treated as an error. If both a device class and a unit are set below, a source reporting a different but convertible unit (e.g. inHg vs psi for a pressure device class) is converted before combining; a source in a completely unrelated unit is skipped like any other unusable source.",
+          "aggregation": "How to combine the current source values into the sensor's state.",
+          "hour": "Hour field of the update schedule: an exact hour (0-23), a step value like `/2` for every 2nd hour, or blank. Leaving this blank means \"every hour\" -- only set it if the schedule should be limited to specific hours.",
+          "minute": "Minute field of the update schedule: an exact minute (0-59), a step value like `/5` (the suggested default), or blank. If second is set to a specific value below, a blank minute means \"every minute\"; otherwise a blank minute means \"at minute 0\".",
+          "second": "Second field of the update schedule: an exact second (0-59), a step value like `/30`, or blank. A blank second means \"at second 0\", not \"every second\". At least one of hour, minute, or second must be set to a specific value or step.",
+          "entity_category": "Allows marking an entity as device configuration or diagnostics. An entity with a category will be hidden by default from the dashboard, but still available in the entity list."
+        }
+      },
+      "template": {
+        "data": {
+          "state_template": "State template",
+          "availability_template": "Availability template",
+          "unit_of_measurement": "Unit of measurement",
+          "device_class": "Device class",
+          "state_class": "State class",
+          "hour": "Hour",
+          "minute": "Minute",
+          "second": "Second",
+          "device_id": "Device",
+          "entity_category": "Entity category"
+        },
+        "data_description": {
+          "state_template": "Jinja2 template rendered on each scheduled tick to produce the sensor's state.",
+          "availability_template": "Optional Jinja2 template rendered before the state template on each tick; if it renders falsy, the entity is marked unavailable and the state template is not rendered.",
+          "hour": "Hour field of the update schedule: an exact hour (0-23), a step value like `/2` for every 2nd hour, or blank. Leaving this blank means \"every hour\" -- only set it if the schedule should be limited to specific hours.",
+          "minute": "Minute field of the update schedule: an exact minute (0-59), a step value like `/5` (the suggested default), or blank. If second is set to a specific value below, a blank minute means \"every minute\"; otherwise a blank minute means \"at minute 0\".",
+          "second": "Second field of the update schedule: an exact second (0-59), a step value like `/30`, or blank. A blank second means \"at second 0\", not \"every second\". At least one of hour, minute, or second must be set to a specific value or step.",
+          "entity_category": "Allows marking an entity as device configuration or diagnostics. An entity with a category will be hidden by default from the dashboard, but still available in the entity list."
+        }
+      },
+      "template_binary": {
+        "data": {
+          "state_template": "State template",
+          "availability_template": "Availability template",
+          "device_class": "Device class",
+          "hour": "Hour",
+          "minute": "Minute",
+          "second": "Second",
+          "device_id": "Device",
+          "entity_category": "Entity category"
+        },
+        "data_description": {
+          "state_template": "Jinja2 template rendered on each scheduled tick to produce the sensor's state.",
+          "availability_template": "Optional Jinja2 template rendered before the state template on each tick; if it renders falsy, the entity is marked unavailable and the state template is not rendered.",
+          "hour": "Hour field of the update schedule: an exact hour (0-23), a step value like `/2` for every 2nd hour, or blank. Leaving this blank means \"every hour\" -- only set it if the schedule should be limited to specific hours.",
+          "minute": "Minute field of the update schedule: an exact minute (0-59), a step value like `/5` (the suggested default), or blank. If second is set to a specific value below, a blank minute means \"every minute\"; otherwise a blank minute means \"at minute 0\".",
+          "second": "Second field of the update schedule: an exact second (0-59), a step value like `/30`, or blank. A blank second means \"at second 0\", not \"every second\". At least one of hour, minute, or second must be set to a specific value or step.",
+          "entity_category": "Allows marking an entity as device configuration or diagnostics. An entity with a category will be hidden by default from the dashboard, but still available in the entity list."
+        }
+      }
+    }
+  },
+  "selector": {
+    "aggregation": {
+      "options": {
+        "min": "Minimum",
+        "max": "Maximum",
+        "mean": "Arithmetic mean",
+        "median": "Median",
+        "sum": "Sum",
+        "range": "Statistical range",
+        "last": "Most recently updated"
+      }
+    },
+    "entity_category": {
+      "options": {
+        "config": "Config",
+        "diagnostic": "Diagnostic"
+      }
+    },
+    "sensor_device_class": {
+      "options": {
+        "date": "Date",
+        "timestamp": "Timestamp",
+        "uptime": "Uptime",
+        "absolute_humidity": "Absolute humidity",
+        "apparent_power": "Apparent power",
+        "aqi": "Air quality index",
+        "area": "Area",
+        "atmospheric_pressure": "Atmospheric pressure",
+        "battery": "Battery",
+        "blood_glucose_concentration": "Blood glucose concentration",
+        "carbon_monoxide": "Carbon monoxide",
+        "carbon_dioxide": "Carbon dioxide",
+        "conductivity": "Conductivity",
+        "current": "Current",
+        "data_rate": "Data rate",
+        "data_size": "Data size",
+        "distance": "Distance",
+        "duration": "Duration",
+        "energy": "Energy",
+        "energy_distance": "Energy per distance",
+        "energy_storage": "Stored energy",
+        "frequency": "Frequency",
+        "gas": "Gas",
+        "humidity": "Humidity",
+        "illuminance": "Illuminance",
+        "irradiance": "Irradiance",
+        "moisture": "Moisture",
+        "monetary": "Monetary balance",
+        "nitrogen_dioxide": "Nitrogen dioxide",
+        "nitrogen_monoxide": "Nitrogen monoxide",
+        "nitrous_oxide": "Nitrous oxide",
+        "ozone": "Ozone",
+        "ph": "pH",
+        "pm1": "PM1",
+        "pm10": "PM10",
+        "pm25": "PM2.5",
+        "pm4": "PM4",
+        "power_factor": "Power factor",
+        "power": "Power",
+        "precipitation": "Precipitation",
+        "precipitation_intensity": "Precipitation intensity",
+        "pressure": "Pressure",
+        "radon": "Radon",
+        "reactive_energy": "Reactive energy",
+        "reactive_power": "Reactive power",
+        "signal_strength": "Signal strength",
+        "sound_pressure": "Sound pressure",
+        "speed": "Speed",
+        "sulphur_dioxide": "Sulphur dioxide",
+        "temperature": "Temperature",
+        "temperature_delta": "Temperature delta",
+        "volatile_organic_compounds": "Volatile organic compounds",
+        "volatile_organic_compounds_parts": "Volatile organic compounds parts",
+        "voltage": "Voltage",
+        "volume": "Volume",
+        "volume_storage": "Stored volume",
+        "volume_flow_rate": "Volume flow rate",
+        "water": "Water",
+        "weight": "Weight",
+        "wind_direction": "Wind direction",
+        "wind_speed": "Wind speed"
+      }
+    },
+    "sensor_state_class": {
+      "options": {
+        "measurement": "Measurement",
+        "measurement_angle": "Measurement angle",
+        "total": "Total",
+        "total_increasing": "Total increasing"
+      }
+    },
+    "binary_sensor_device_class": {
+      "options": {
+        "battery": "Battery",
+        "battery_charging": "Charging",
+        "carbon_monoxide": "Carbon monoxide",
+        "cold": "Cold",
+        "connectivity": "Connectivity",
+        "door": "Door",
+        "garage_door": "Garage door",
+        "gas": "Gas",
+        "heat": "Heat",
+        "light": "Light",
+        "lock": "Lock",
+        "moisture": "Moisture",
+        "motion": "Motion",
+        "moving": "Moving",
+        "occupancy": "Occupancy",
+        "opening": "Opening",
+        "plug": "Plug",
+        "power": "Power",
+        "presence": "Presence",
+        "problem": "Problem",
+        "running": "Running",
+        "safety": "Safety",
+        "smoke": "Smoke",
+        "sound": "Sound",
+        "tamper": "Tamper",
+        "update": "Update",
+        "vibration": "Vibration",
+        "window": "Window"
+      }
+    }
+  }
+}
