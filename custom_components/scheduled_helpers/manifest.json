@@ -4,7 +4,7 @@
   "codeowners": ["@dxmnkd316"],
   "config_flow": true,
   "documentation": "https://github.com/dxmnkd316/ha-scheduled-helpers",
-  "issue_tracker": "https://github.com/dxmnkd316/ha-scheduled-helpers/issues",
   "iot_class": "calculated",
+  "issue_tracker": "https://github.com/dxmnkd316/ha-scheduled-helpers/issues",
   "version": "1.0.0"
 }
