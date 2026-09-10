@@ -9,7 +9,7 @@ sensors" (`min_max`) and Template helpers, with two differences:
   of reacting to every source state change.
 - The entity can be linked to an existing device.
 
-Each helper is an independent entity with it's own update schedule,
+Each helper is an independent entity with its own update schedule,
 source/template, and device link.
 
 ## Entity types
@@ -34,7 +34,21 @@ sensor types) unit of measurement, device class, and state class.
 
 ## Installation
 
-This integration isn't published to HACS. Install manually:
+### Via HACS
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=dxmnkd316&repository=ha-scheduled-helpers&category=integration)
+
+If this repository isn't yet in the default HACS store, add it as a
+[custom repository](https://hacs.xyz/docs/faq/custom_repositories/) instead:
+in HACS, open the 3-dot menu → **Custom repositories**, add
+`https://github.com/dxmnkd316/ha-scheduled-helpers`, category
+**Integration**, then install "Scheduled Helpers" from HACS as normal.
+
+Restart Home Assistant after installing, then go to **Settings → Devices
+& Services → Add Integration**, search for "Scheduled Helpers", and pick
+one of the three helper types.
+
+### Manual
 
 1. Copy the `custom_components/scheduled_helpers/` directory from this
    repo into your Home Assistant configuration's `custom_components/`
